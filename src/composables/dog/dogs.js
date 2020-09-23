@@ -11,7 +11,7 @@ export default function useDogs() {
     }
 
     function fetchDog(dogNum) {
-        fetch(`https://localhost:8081/dog/${dogNum}`)
+        fetch(`http://localhost:8081/dog/${dogNum}`)
             .then(response => response.json())
             .then(data => (dog.value = data));
     }

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import DogList from '@/components/site/DogList.vue';
+import DogList from '@/components/dog/DogList.vue';
 
 export default {
   name: "Home",

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import useDogs from "@/composables/site/dogs";
+import useDogs from "@/composables/dog/dogs";
 import { onMounted } from "vue";
 
 export default {
