@@ -2,6 +2,8 @@ import { ref } from "vue";
 
 export default function useDogs() {
     let dog = ref({});
+    let familyTree = ref([]);
+
     let dogs = ref([]);
     
     function fetchDogs() {
@@ -16,5 +18,20 @@ export default function useDogs() {
             .then(data => (dog.value = data));
     }
 
-    return {fetchDogs, fetchDog, dog, dogs };
+    function fetchFamilyTree(dogNum) {
+        fetch(`http://localhost:8081/dog/${dogNum}/familytree`)
+            .then(response => response.json())
+            .then(data => (familyTree.value = data));
+    }
+
+    function fetchAnother(dogNum) {
+        let another = ref({});
+        fetch(`http://localhost:8081/dog/${dogNum}`)
+            .then(response => response.json())
+            .then(data => (another.value = data));
+        
+        return another;
+    }
+
+    return {fetchDogs, fetchDog, fetchAnother, fetchFamilyTree, familyTree, dog, dogs };
 }
