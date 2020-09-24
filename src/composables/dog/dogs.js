@@ -3,6 +3,8 @@ import { ref } from "vue";
 export default function useDogs() {
     let dog = ref({});
     let familyTree = ref([]);
+    let children = ref([]);
+    let siblings = ref([]);
 
     let dogs = ref([]);
     
@@ -16,6 +18,10 @@ export default function useDogs() {
         fetch(`http://localhost:8081/dog/${dogNum}`)
             .then(response => response.json())
             .then(data => (dog.value = data));
+
+        fetchFamilyTree(dogNum);
+        fetchChildren(dogNum);
+        fetchSiblings(dogNum);
     }
 
     function fetchFamilyTree(dogNum) {
@@ -24,14 +30,17 @@ export default function useDogs() {
             .then(data => (familyTree.value = data));
     }
 
-    function fetchAnother(dogNum) {
-        let another = ref({});
-        fetch(`http://localhost:8081/dog/${dogNum}`)
+    function fetchChildren(dogNum) {
+        fetch(`http://localhost:8081/dog/${dogNum}/children`)
             .then(response => response.json())
-            .then(data => (another.value = data));
-        
-        return another;
+            .then(data => (children.value = data));
     }
 
-    return {fetchDogs, fetchDog, fetchAnother, fetchFamilyTree, familyTree, dog, dogs };
+    function fetchSiblings(dogNum) {
+        fetch(`http://localhost:8081/dog/${dogNum}/siblings`)
+            .then(response => response.json())
+            .then(data => (siblings.value = data));
+    }
+
+    return {fetchDogs, fetchDog, fetchFamilyTree, fetchChildren, familyTree, dog, dogs, children, siblings };
 }
