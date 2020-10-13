@@ -7,15 +7,15 @@ export default function useDogs() {
     let siblings = ref([]);
 
     let dogs = ref([]);
-    
+
     function fetchDogs() {
-        fetch(`http://localhost:8081/dog/all`)
+        fetch(`http://18.130.210.148:81/dog/all`)
             .then(response => response.json())
             .then(data => (dogs.value = data));
     }
 
     function fetchDog(dogNum) {
-        fetch(`http://localhost:8081/dog/${dogNum}`)
+        fetch(`http://18.130.210.148:81/dog/${dogNum}`)
             .then(response => response.json())
             .then(data => (dog.value = data));
 
@@ -25,19 +25,19 @@ export default function useDogs() {
     }
 
     function fetchFamilyTree(dogNum) {
-        fetch(`http://localhost:8081/dog/${dogNum}/familytree`)
+        fetch(`http://18.130.210.148:81/dog/${dogNum}/familytree`)
             .then(response => response.json())
             .then(data => (familyTree.value = data));
     }
 
     function fetchChildren(dogNum) {
-        fetch(`http://localhost:8081/dog/${dogNum}/children`)
+        fetch(`http://18.130.210.148:81/dog/${dogNum}/children`)
             .then(response => response.json())
             .then(data => (children.value = data));
     }
 
     function fetchSiblings(dogNum) {
-        fetch(`http://localhost:8081/dog/${dogNum}/siblings`)
+        fetch(`http://18.130.210.148:81/dog/${dogNum}/siblings`)
             .then(response => response.json())
             .then(data => (siblings.value = data));
     }
