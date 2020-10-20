@@ -18,8 +18,8 @@
 
     <div v-if="children != undefined && children.length >= 1"><b>Children:</b><br>
       <ul>
-        <li v-for="child in children" :key="child.dogNum">
-          <router-link :to="`/dog/${child.dogNum}`">{{ child.regName }}</router-link>
+        <li v-for="child in children" :key="child.id">
+          <router-link :to="`/dog/${child.id}`">{{ child.regName }}</router-link>
         </li>
       </ul>
     </div>
@@ -27,8 +27,8 @@
 
     <div v-if="siblings != undefined && siblings.length >= 1"><b>Siblings:</b><br>
       <ul>
-        <li v-for="sibling in siblings" :key="sibling.dogNum">
-          <router-link :to="`/dog/${sibling.dogNum}`">{{ sibling.regName }}</router-link>
+        <li v-for="sibling in siblings" :key="sibling.id">
+          <router-link :to="`/dog/${sibling.id}`">{{ sibling.regName }}</router-link>
         </li>
       </ul>
     </div>

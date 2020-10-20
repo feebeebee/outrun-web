@@ -14,30 +14,30 @@ export default function useDogs() {
             .then(data => (dogs.value = data));
     }
 
-    function fetchDog(dogNum) {
-        fetch(`http://18.130.210.148:81/dog/${dogNum}`)
+    function fetchDog(id) {
+        fetch(`http://18.130.210.148:81/dog/${id}`)
             .then(response => response.json())
             .then(data => (dog.value = data));
 
-        fetchFamilyTree(dogNum);
-        fetchChildren(dogNum);
-        fetchSiblings(dogNum);
+        fetchFamilyTree(id);
+        fetchChildren(id);
+        fetchSiblings(id);
     }
 
-    function fetchFamilyTree(dogNum) {
-        fetch(`http://18.130.210.148:81/dog/${dogNum}/familytree`)
+    function fetchFamilyTree(id) {
+        fetch(`http://18.130.210.148:81/dog/${id}/familytree`)
             .then(response => response.json())
             .then(data => (familyTree.value = data));
     }
 
-    function fetchChildren(dogNum) {
-        fetch(`http://18.130.210.148:81/dog/${dogNum}/children`)
+    function fetchChildren(id) {
+        fetch(`http://18.130.210.148:81/dog/${id}/children`)
             .then(response => response.json())
             .then(data => (children.value = data));
     }
 
-    function fetchSiblings(dogNum) {
-        fetch(`http://18.130.210.148:81/dog/${dogNum}/siblings`)
+    function fetchSiblings(id) {
+        fetch(`http://18.130.210.148:81/dog/${id}/siblings`)
             .then(response => response.json())
             .then(data => (siblings.value = data));
     }
