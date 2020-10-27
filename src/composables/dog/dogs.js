@@ -9,13 +9,13 @@ export default function useDogs() {
     let dogs = ref([]);
 
     function fetchDogs() {
-        fetch(`http://localhost:80/dog/all`)
+        fetch(`/dog/all`)
             .then(response => response.json())
             .then(data => (dogs.value = data));
     }
 
     function fetchDog(id) {
-        fetch(`http://localhost:80/dog/${id}`)
+        fetch(`/dog/${id}`)
             .then(response => response.json())
             .then(data => (dog.value = data));
 
@@ -25,19 +25,19 @@ export default function useDogs() {
     }
 
     function fetchFamilyTree(id) {
-        fetch(`http://localhost:80/dog/${id}/familytree`)
+        fetch(`/dog/${id}/familytree`)
             .then(response => response.json())
             .then(data => (familyTree.value = data));
     }
 
     function fetchChildren(id) {
-        fetch(`http://localhost:80/dog/${id}/children`)
+        fetch(`/dog/${id}/children`)
             .then(response => response.json())
             .then(data => (children.value = data));
     }
 
     function fetchSiblings(id) {
-        fetch(`http://localhost:80/dog/${id}/siblings`)
+        fetch(`/dog/${id}/siblings`)
             .then(response => response.json())
             .then(data => (siblings.value = data));
     }
