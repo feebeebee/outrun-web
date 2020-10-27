@@ -9,13 +9,13 @@ export default function useDogs() {
     let dogs = ref([]);
 
     function fetchDogs() {
-        fetch(`http://18.130.210.148:81/dog/all`)
+        fetch(`http://localhost:80/dog/all`)
             .then(response => response.json())
             .then(data => (dogs.value = data));
     }
 
     function fetchDog(id) {
-        fetch(`http://18.130.210.148:81/dog/${id}`)
+        fetch(`http://localhost:80/dog/${id}`)
             .then(response => response.json())
             .then(data => (dog.value = data));
 
@@ -25,19 +25,19 @@ export default function useDogs() {
     }
 
     function fetchFamilyTree(id) {
-        fetch(`http://18.130.210.148:81/dog/${id}/familytree`)
+        fetch(`http://localhost:80/dog/${id}/familytree`)
             .then(response => response.json())
             .then(data => (familyTree.value = data));
     }
 
     function fetchChildren(id) {
-        fetch(`http://18.130.210.148:81/dog/${id}/children`)
+        fetch(`http://localhost:80/dog/${id}/children`)
             .then(response => response.json())
             .then(data => (children.value = data));
     }
 
     function fetchSiblings(id) {
-        fetch(`http://18.130.210.148:81/dog/${id}/siblings`)
+        fetch(`http://localhost:80/dog/${id}/siblings`)
             .then(response => response.json())
             .then(data => (siblings.value = data));
     }
